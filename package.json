@@ -1,0 +1,24 @@
+{
+	"name": "wintersmith-appengine",
+	"version": "1.0.0",
+	"description": "A Wintersmith plugin for creating Google Appengine applications.",
+	"main": "index.js",
+	
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/websecurify/wintersmith-appengine.git"
+	},
+	
+	"keywords": [
+		"wintersmith",
+		"appengine",
+		"google"
+	],
+	
+	"author": "Websecurify <contact@websecurify.com>",
+	"license": "BSD",
+	
+	"dependencies": {
+		"coffee-script": "*"
+	}
+}
