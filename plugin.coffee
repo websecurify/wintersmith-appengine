@@ -16,7 +16,7 @@ module.exports = (env, callback) ->
 		api_version: 1
 		threadsafe: yes
 
-		default_expiration: "30d"
+		default_expiration: "1d"
 
 		handlers:
 		- url: /(.*\\.(appcache|manifest))
@@ -216,6 +216,8 @@ module.exports = (env, callback) ->
 
 			if mappings
 				yaml = yaml.replace '# mappings\n', '#mappings\n' + mappings.join('\n')
+			else
+				yaml = yaml.replace '# mappings\n', ''
 
 		py = """
 		import webapp2
