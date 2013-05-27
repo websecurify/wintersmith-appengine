@@ -4,7 +4,7 @@ Plugin for [wintersmith](https://github.com/jnordberg/wintersmith) which convert
 
 ### Install
 
-Just added to your wintersmith plugins as you usually do.
+Just add it to your wintersmith plugins as you would usually do.
 
 ### Configuration
 
