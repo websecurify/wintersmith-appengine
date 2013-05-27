@@ -18,7 +18,8 @@ module.exports = (env, callback) ->
 		
 		env_variables:
 		  NOT_FOUND_PAGE: #{config.appengine.notFoundPage or '""'}
-		
+		  NOT_FOUND_PAGE_IS_REDIRECT: #{config.appengine.notFoundPageIsRedirect or 'false'}
+		  
 		default_expiration: "1d"
 		
 		handlers:
@@ -59,11 +60,19 @@ module.exports = (env, callback) ->
 				
 				if not os.path.exists(final_path):
 					if 'NOT_FOUND_PAGE' in os.environ and os.environ['NOT_FOUND_PAGE']:
+						if 'NOT_FOUND_PAGE_IS_REDIRECT' in os.environ and os.environ['NOT_FOUND_PAGE_IS_REDIRECT']:
+							self.redirect(os.environ['NOT_FOUND_PAGE'])
+							
+							return
+							
 						path_parts = [self.root] + os.environ['NOT_FOUND_PAGE'].split('/')
 						final_path = os.path.join(*path_parts)
 						
 						if not os.path.exists(final_path):
 							return
+							
+						self.response.set_status(404)
+						
 					else:
 						return
 						
@@ -72,6 +81,10 @@ module.exports = (env, callback) ->
 					final_path = os.path.join(*path_parts)
 					
 				self.response.headers['Content-Type'] = mimetypes.guess_type(os.path.basename(final_path))[0]
+				
+				self.response.cache_control.no_cache = None
+				self.response.cache_control.public = True
+				self.response.cache_control.max_age = 86400
 				
 				file = open(final_path)
 				

@@ -1,6 +1,6 @@
 {
 	"name": "wintersmith-appengine",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A Wintersmith plugin for creating Google Appengine applications.",
 	"main": "index.js",
 	
