@@ -51,6 +51,8 @@ module.exports = (env, callback) ->
 		import webapp2
 		import os
 		
+		mimetypes.add_type('application/font-woff', '.woff')
+		
 		class RequestHandler(webapp2.RequestHandler):
 			root = os.path.dirname(__file__)
 			
@@ -80,7 +82,7 @@ module.exports = (env, callback) ->
 					path_parts = path_parts + ['index.html']
 					final_path = os.path.join(*path_parts)
 					
-				self.response.headers['Content-Type'] = mimetypes.guess_type(os.path.basename(final_path))[0]
+				self.response.headers['Content-Type'] = mimetypes.guess_type(os.path.basename(final_path))[0] or 'application/octet-stream'
 				
 				self.response.cache_control.no_cache = None
 				self.response.cache_control.public = True
