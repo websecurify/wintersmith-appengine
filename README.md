@@ -1,6 +1,6 @@
 # wintersmith-appengine
 
-Plugin for [wintersmith](https://github.com/jnordberg/wintersmith) which converts the build directory into a Google Appengine compatible app.
+Plugin for [wintersmith](https://github.com/jnordberg/wintersmith) which converts the build directory into a Google Appengine compatible app. Works with wintersmith 2.
 
 ### Install
 
