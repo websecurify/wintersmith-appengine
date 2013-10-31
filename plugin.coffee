@@ -25,6 +25,7 @@ module.exports = (env, callback) ->
 	import webapp2
 	import os
 	
+	mimetypes.add_type('image/svg+xml', '.svg')
 	mimetypes.add_type('application/font-woff', '.woff')
 	
 	true = True
