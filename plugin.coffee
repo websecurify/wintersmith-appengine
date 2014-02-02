@@ -147,7 +147,7 @@ module.exports = (env, callback) ->
 	if fs.existsSync build_path
 		fs.writeFile app_yaml_path, yaml, (err) ->
 			return callback if err
-			return fs.writeFile (path.join, 'build', 'app.py'), py, callback
+			return fs.writeFile (path.join 'build', 'app.py'), py, callback
 	else
 		return callback null
 		
