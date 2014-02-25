@@ -97,6 +97,7 @@ module.exports = (env, callback) ->
 			# ---
 			
 			self.response.headers['Content-Type'] = mimetypes.guess_type(os.path.basename(final_path))[0] or 'application/octet-stream'
+			self.response.headers['X-Frame-Options'] = 'SAMEORIGIN'
 			
 			# ---
 			
