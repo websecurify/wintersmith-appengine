@@ -107,6 +107,34 @@ module.exports = (env, callback) ->
 			
 			# ---
 			
+			if not os.path.exists(final_path):
+				if 'notFoundPage' in config['appengine'] and config['appengine']['notFoundPage']:
+					if 'notFoundPageIsRedirect' in config['appengine'] and config['appengine']['notFoundPageIsRedirect']:
+						self.redirect(config['appengine']['notFoundPage'])
+						
+						# ---
+						
+						return
+						
+					# ---
+					
+					path_parts = [self.root] + config['appengine']['notFoundPage'].split('/')
+					final_path = os.path.join(*path_parts)
+					
+					# ---
+					
+					if not os.path.exists(final_path):
+						return
+						
+					# ---
+					
+					self.response.set_status(404)
+					
+				else:
+					return
+					
+			# ---
+			
 			file = open(final_path)
 			
 			self.response.write(file.read())
