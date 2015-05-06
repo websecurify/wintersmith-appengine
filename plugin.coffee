@@ -9,8 +9,8 @@ module.exports = (env, callback) ->
 	# ---
 	
 	yaml = """
-	application: #{config.appengine.application or 'application'}
-	version: #{config.appengine.version or 1}
+	# application: #{config.appengine.application or 'application'}
+	# version: #{config.appengine.version or 1}
 	runtime: python27
 	api_version: 1
 	threadsafe: yes
