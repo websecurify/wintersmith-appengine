@@ -1,3 +1,5 @@
+[![Follow on Twitter](https://img.shields.io/twitter/follow/websecurify.svg?logo=twitter)](https://twitter.com/websecurify)
+
 # wintersmith-appengine
 
 Plugin for [wintersmith](https://github.com/jnordberg/wintersmith) which converts the build directory into a Google Appengine compatible app. Works with wintersmith 2.
